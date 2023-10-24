@@ -1,5 +1,6 @@
 *.png
 
+README*
 node_modules
 .svelte-kit
 build
