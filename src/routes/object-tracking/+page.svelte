@@ -1,10 +1,12 @@
 <script>
+import { base } from "$app/paths";
+
 import Header from '$lib/Header.svelte';
 
 </script>
 
 <nav>
-    <a href="/">home</a>
+    <a href="{base}/">home</a>
 </nav>
 
 <Header />

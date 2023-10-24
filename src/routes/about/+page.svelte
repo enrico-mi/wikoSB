@@ -1,4 +1,5 @@
 <script>
+import { base } from "$app/paths";
 import * as d3 from 'd3';
 
 import Header from '$lib/Header.svelte';
@@ -17,7 +18,7 @@ var areaPointsRed = [
 </script>
 
 <nav>
-	<a href="/">home</a>
+	<a href="{base}/">home</a>
 </nav>
 
 <Header />
