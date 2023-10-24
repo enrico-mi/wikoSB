@@ -1,0 +1,124 @@
+/* We add root id inside body not to touch body (good practice) */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  --padding-lg: 1rem;
+  --padding-md: 0.6rem;
+  --padding-no: 0rem;
+  --font-color-grey: #444;
+}
+
+html,
+body {
+  height: 100%;
+  color: var(--font-color-grey);
+}
+
+body {
+    padding: var(--padding-lg);
+}
+
+div {
+  /* border: 1px dashed #333; */
+  padding: var(--padding-no);
+}
+
+#root {
+  display: flex;
+/*   flex-wrap: wrap; */
+  gap: var(--padding-md);
+  height: 100%;
+  /* border: 1px solid red; */
+    font-family: Arial, sans-serif;
+    background: rgb(255,254,245);  /* #e2e2e2; */
+    color: rgb(0,0,0);
+}
+
+.root-left,
+.root-right {
+/*   flex-basis: 50%; */
+  height: 100%;
+  /* border: 1px solid blue; */
+  padding: var(--padding-md);
+}
+
+.root-left {
+  display: flex;
+  flex-direction: column;
+  max-width: 55%;
+  gap: var(--padding-no);
+}
+
+.root-right {
+  flex-grow: 1;
+}
+
+#region {
+  height: 100%;
+}
+
+.heatmap-controls-polar{
+    height: 80vh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+#heatmap {
+  height: 40vh;
+}
+
+.controls-and-polar {
+  height: 40vh;
+  display: flex;
+  gap: var(--padding-no);
+}
+
+.controls {
+  flex-grow: 1;
+  padding: 0;
+  overflow: auto;
+  max-width: 25vw;
+}
+
+.controls .scrollable {
+}
+
+#polar {
+  /* this helps keep the polar chart div a perfect square   */
+      aspect-ratio: 1;
+}
+
+/* Text - headers and paragraphs */
+
+h1 {
+  font-size: 30px;
+}
+
+h2, summary {
+    font-size: 30px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.introduction{
+    min-height: 200px;
+}
+
+.scrollable{
+    padding: var(--padding-no);
+    overflow: auto;
+}
+
+label-slider{
+    display: inline-block;
+    width: 130px;
+}
+
+fieldset br{
+    display: none;
+}
