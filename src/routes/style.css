@@ -1,0 +1,42 @@
+/* style sheet for header and home page */
+
+/* header logo */
+.header__logo {
+    margin: 0;
+    padding: 0;
+    border: 1px dashed red;
+}
+
+.header__logo{
+    font-size:70px;
+}
+.acronym-W, .acronym-S, .acronym-R {
+    /* border: 1px dashed red; */
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    transform: rotate(0deg);
+    line-height: 0em;
+}
+
+.acronym-B {
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    transform: rotate(45deg);
+    display: inline-block;
+    /* border: 1px dashed red; */
+    line-height: 0em;
+}
+
+.shape-R {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    /* border: 1px dashed red; */
+}
+
+/* body elements */
+.proj-list {
+    padding: 1em 0 0.3em 0; /* top-right-bottom-left */
+}

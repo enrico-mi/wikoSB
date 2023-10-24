@@ -1,0 +1,53 @@
+/* global style sheet for beyond css reset */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+
+div, nav {
+  border: 1px dashed #333;
+  padding: 0.5em
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+svg.logo-blue-screen{
+    display: inline;
+    margin: 0;
+    padding: 0;
+    /* border: 1px dashed red; */
+}
+
+div, p {
+    font-size: 20px;
+}
+
+.home-title{
+    font-size: 28px;
+}
+
+.bordered {
+  border: 1px dashed blue;
+  padding: 0.25em;
+  display: inline;
+}
+
+.home-desc {
+  display: inline;
+}
+
+/* adding non-breaking space at beginning of paragraph */
+.home-desc:before { content: "\00a0 "; }
+
+.direction {
+    align-content: end
+}
+
+.proj-item {
+    font-size: 30px
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel="icon" href="data:;base64,=">
+    <!-- loading mapbox, p5, and all needed scripts -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet" />
+    <script src="checkedText.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chroma-js@2.1.0/chroma.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mapbox-gl@2.5.1/dist/mapbox-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+    <script src="https://unpkg.com/html2canvas@1.3.2/dist/html2canvas.min.js"></script><meta http-equiv="Cache-Control" content="no-cache, no-store">
+
+    <!-- loading style.css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <div id="root">
+      <div class="root-left">
+	<div class="title">
+	  <h1>Ridgecrest fractures interactive visualization<h1>
+	</div>
+
+	<div class="scrollable">
+	  <div class="introduction">
+	    <!-- we didn't go over this but the details & summary elements are one way to make your introduction content collapseable / hideable. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details       -->
+	    <!-- <details open> -->
+	      <!--   <summary> Introduction </summary> -->
+	      <p> The 2019 Ridgecrest earthquakes sequence resulted in several surface ruptures at all scales that are of considerable scientific interest. This interactive visualization complements our investigations of the surface ruptures that were observed at the northern termination of the mainshock fault, and it is meant to be used together with the main manuscript, as knowledge of that material is implied.</p>
+
+	      <p id="explainer"> The text that follows explains how to interact with this page. If you want to skip to the visualization, <a href="#heatmap"> click here</a>.</p>
+
+	      <p>The webapp contains four elements: a map of the Ridgecrest region, a heatmap with the error estimates for the coefficient of friction &mu;, radial plot for fractures orientation, a set of controls that allow to quickly visualize the implications of different assumptions and fractures selection.</p>
+
+	      <p> <b>Map</b>. On your right, you have the map of the Ridgecrest region, displaying the fractures dataset (orange) of Ponti et al (2020) from which the pre-2019 features later identified by Thompson Jobe et al (2021) have been removed (gray). The box with black dotted borders indicates the region object of our investigations. By clicking on any rupture, a pop-up window will show informations contained in the dataset (e.g. observation methodology, provider, citation, angle of each segment and overall average angle of the fracture, etc.).</p>
+
+	      <p> <b>Heatmap</b>. The first element below this text is an interactive heatmap where each tile's color is directly proportional to the sum of squared residuals of the weighted error of the predicted orientation of each fracture, SR<sub>w</sub>, and where each row and column represents a value of &mu; and of depth. At each depth, orange borders surround neighboring tiles whose SR<sub>w</sub> is smaller than the one predicted by pure randomness, and an orange ring identifies the tile with the smallest SR<sub>w</sub>. For each heatmap, an orange filled circle identifies the tile with the smallest SR<sub>w</sub> overall. By clicking on a specific tile (for &mu; between 0 and 1.5), the directions of largest horizontal stress and of shear failure are visualized in the map on the right.</p>
+
+	      <p> <b>Radial plot</b>. Below the heatmap, on the right, this element visualizes in real time the orientation of the fractures that are rendered on the map on the right. The radius of each point indicates the length of the fracture. Note that the visualization and the scale re-scale dynamically upon map navigation. When clicking on a fracture on the map on the right, its orientation is highlighted in red in the radial plot. Yellow guideline identifies direction of largest compressive stress, red and blue guidelines identify sinistral and dextral shear for a given value of &mu; (see Controls - &mu;).</p>
+
+	      <p> <b>Controls</b>. Below the heatmap, on the left, is a set of controls to interact with the visualizations.
+		<br>
+		<i>&mu;</i>: changes the values of the internal friction coeffiecent for the radial plot (values between 0 and 1.5). No effect on map and heatmap.
+		<br>
+		<i>Resolution</i>: selects length at which ruptures are resolved (values: 0, 10, 100, and 200m). It affects heatmap, map, and radial plot.
+		<br>
+		<i>Invert fractures resolution</i>: selects fractures shorter than the length specified with the 'resolution' control. It affects heatmap, map, and radial plot.
+		<br>
+		<i>Only fractures with known slip sense</i>: selects the subset of fractures whose slip sense is known (see Figure 1b of the main manuscript). It affects heatmap, map, and radial plot.
+		<br>
+		<i>Select an observation method</i>: self-explanatory. It affects heatmap, map, and radial plot.
+		<br>
+		<i>Select a tectonic stress orientation</i>: selects direction of largest horizontal compressive stress. It affects heatmap, map (stress orientations only), and radial plot.</p>
+
+	    <!-- </details> -->
+	  </div>
+
+	  <div class="heatmap-controls-polar">
+	  <div id="heatmap">
+	  </div>
+	  
+	  <div class="controls-and-polar">   
+	    <div class="controls">
+              <!-- to allow the controls to scroll vertically we add another container within the .controls container -->
+              <div class="scrollable">
+		<!-- <fieldset> -->
+		<!--   <legend>Select segments or fractures resolution:</legend> -->
+		<!--     <input type="radio" id="Fractures" name="resolution-type" value="0" checked/> -->
+		<!--     <label for="All">Fractures</label> -->
+
+		<!--     <input type="radio" id="Segments" name="resolution-type" value="1"/> -->
+		<!--     <label for="Subset">Segments</label> -->
+
+		<!-- </fieldset> -->
+
+		<!-- <fieldset> -->
+		<!--   <legend>Select error normalization:</legend> -->
+		<!--   <div> -->
+		<!--     <input type="radio" id="Subset" name="normalization" value="0" checked/> -->
+		<!--     <label for="Subset">Total length of all fractures, for subset selected by resolution</label> -->
+		<!--   </div> -->
+
+		<!--   <div> -->
+		<!--     <input type="radio" id="All" name="normalization" value="1" /> -->
+		<!--     <label for="All">Total length of all fractures (only for fractures of known slip mechanism)</label> -->
+		<!--   </div> -->
+
+		<!-- </fieldset> -->
+
+		<label-slider for="mu_slider">&mu; (for radial plot):</label-slider>
+		<input id="mu_input" type="range" min="0" max="1.5" step="0.1" value="0.6"/><label-out><output id="mu_value"></output></label-out>
+
+		<br>
+		<label-slider for="res_slider">resolution: </label-slider>
+		<input id="res_input" type="range" min="0" max="3" step="1" value="0"/><label-out><output id="res_value"></output>m</label-out>
+
+		<br>
+		<input type="checkbox" id="resolution-toggle" unchecked>
+		<label for="resolution-toggle">Invert fractures resolution</label>
+
+		<br>
+		<input type="checkbox" id="slipsense-toggle" unchecked>
+		<label for="slipsense-toggle">Only fractures with known slip sense</label>
+
+		<fieldset>
+		  <legend>Select an observation method:</legend>
+
+		  <div>
+		    <input type="radio" id="all" name="methods" value="0" checked />
+		    <label for="all">all (field, remote sensing, imagery, inferred)</label>
+		  </div>
+
+		  <div>
+		    <input type="radio" id="field" name="methods" value="1" />
+		    <label for="field">field</label>
+		  </div>
+
+		  <div>
+		    <input type="radio" id="remote-sensing" name="methods" value="2" />
+		    <label for="remote-sensing">remote sensing</label>
+		  </div>
+		</fieldset>
+
+		<fieldset>
+		  <legend>Select a tectonic stress orientation:</legend>
+
+		    <input type="radio" id="N0E" name="orientation" value="0" />
+		    <label for="N0E">N0E</label>
+
+		    <input type="radio" id="N13E" name="orientation" value="1" checked />
+		    <label for="N13E">N13E</label>
+
+		</fieldset>
+
+		Stress orientations (remember to click on heatmap at desired depth and &mu; value)
+		<br>
+		<input type="checkbox" id="stresslines-RL-toggle" unchecked>
+		<label for="stresslines-RL-toggle">Show dextral shear orientation</label>
+		<br>
+		<input type="checkbox" id="stresslines-LL-toggle" unchecked>
+		<label for="stresslines-LL-toggle">Show sinistral shear orientation</label>
+		<br>
+		<input type="checkbox" id="stresslines-TH-toggle" unchecked>
+		<label for="stresslines-TH-toggle">Show largest horizontal stress orientation</label>
+
+		<br>
+		Colored error fit
+		<br>
+		<input type="checkbox" id="failure-color" unchecked>
+		<label for="failure-color"> Visualize best failure mechanism for selected &mu;</label> <br>
+		<div id="checked-text"> NB: Small ruptures might still look orange -- zoom in to find the predicted failure mechanism (this is due to mapbox hard-coded way of rendering small features). </div>
+
+              </div>
+
+	      <p> Not familiar with what you are seeing? <a href="#explainer">Click here</a>.</p>
+
+	    </div>
+	    <div id="polar">
+	    </div>
+	  </div>
+	  </div>
+	</div>
+      </div>
+
+      <div class="root-right">
+	<div id="region">
+	</div>
+      </div>
+    </div>
+
+    <!-- loading sketches of individual viz elements -->
+    <script src="graphicSketch.js"></script>
+    <script src="mapSketch.js"></script>
+    <script src="polarSketch.js"></script>
+
+    <!-- loading communication between each viz element -->
+    <script src="sketchesComms.js"></script>
+
+  </body>
+</html>
