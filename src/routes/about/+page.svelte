@@ -1,7 +1,7 @@
 <script>
 import * as d3 from 'd3';
 
-import Header from '../../components/Header.svelte';
+import Header from '$lib/Header.svelte';
 
 var hFac = 0.6;
 var areaGenerator = d3.area();

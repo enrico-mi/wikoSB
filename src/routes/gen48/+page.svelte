@@ -1,5 +1,5 @@
 <script>
-import Header from '../../components/Header.svelte';
+import Header from '$lib/Header.svelte';
 
 //import img from '/images/efap/MG.png';
 

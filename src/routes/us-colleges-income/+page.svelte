@@ -2,8 +2,8 @@
 
 import { base } from "$app/paths";
 
-import Header from '../../components/Header.svelte';
-import CollegeIncome from '../../components/CollegeIncome.svelte';
+import Header from '$lib/Header.svelte';
+import CollegeIncome from '$lib/CollegeIncome.svelte';
 
 </script>
 

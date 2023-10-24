@@ -1,13 +1,15 @@
 <script>
-import Header from '../components/Header.svelte';
-import Home from '../components/Home.svelte';
+import { base } from "$app/paths";
+
+import Header from '$lib/Header.svelte';
+import Home from '$lib/Home.svelte';
 </script>
 
 <main>
     <div id="root">
 	
 	<nav class="nav-about">
-	    <a href="/about">About</a>
+	    <a href="{base}/about">About</a>
 	</nav>
 
 	<Header />

@@ -1,6 +1,6 @@
 <script>
-import Header from '../../components/Header.svelte';
-import Ridgecrest from '../../components/Ridgecrest.svelte';
+import Header from '$lib/Header.svelte';
+import Ridgecrest from '$lib/Ridgecrest.svelte';
 
 let password = '';
 let accessGranted = false;
