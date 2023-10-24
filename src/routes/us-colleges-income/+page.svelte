@@ -1,11 +1,14 @@
 <script>
+
+import { base } from "$app/paths";
+
 import Header from '../../components/Header.svelte';
 import CollegeIncome from '../../components/CollegeIncome.svelte';
 
 </script>
 
 <nav>
-    <a href="/">home</a>
+    <a href="{base}/">home</a>
 </nav>
 
 <Header />
