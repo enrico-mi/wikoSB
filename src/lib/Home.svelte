@@ -1,4 +1,6 @@
 <script>
+import { base } from "$app/paths";
+
 import * as d3 from 'd3';
 
 let acronymW = "W";
@@ -74,23 +76,23 @@ var areaPointsRed = [
 	<h1 class="proj-list">Projects</h1>
 
 	<nav class="proj-item">
-	    <a href="/Ridgecrest">Mapping and Scientific Visualization <span>&#8212;</span> Ridgecrest 2019</a>
+	    <a href="{base}/Ridgecrest">Mapping and Scientific Visualization <span>&#8212;</span> Ridgecrest 2019</a>
 	</nav>
 	
 	<nav class="proj-item">
-	    <a href="/us-colleges-income">Data visualization <span>&#8212;</span> US colleges admission and household income</a>
+	    <a href="{base}/us-colleges-income">Data visualization <span>&#8212;</span> US colleges admission and household income</a>
 	</nav>
 
 	<nav class="proj-item">
-	    <a href="/object-tracking">Object Tracking <span>&#8212;</span> Analogue Gravity Fringes</a>
+	    <a href="{base}/object-tracking">Object Tracking <span>&#8212;</span> Analogue Gravity Fringes</a>
 	</nav>
 
 	<nav class="proj-item">
-	    <a href="/efap">Visual Analysis <span>&#8212;</span> Every Film A Painting</a>
+	    <a href="{base}/efap">Visual Analysis <span>&#8212;</span> Every Film A Painting</a>
 	</nav>
 	
 	<nav class="proj-item">
-	    <a href="/gen48">AI Filmmaking <span>&#8212;</span> Threaded Memories</a>
+	    <a href="{base}/gen48">AI Filmmaking <span>&#8212;</span> Threaded Memories</a>
 	</nav>
 	
     </div>
