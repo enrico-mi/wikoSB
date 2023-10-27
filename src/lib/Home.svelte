@@ -67,7 +67,7 @@ var areaPointsRed = [
 			/>
 		    </g>
 		</svg>,
-		keeping separate only developments that would break the website and make it inaccessible.<br><br>
+		keeping separate only developments that would break the website and make it inaccessible.
 	    <!-- If you're familiar with version-controlling, I am trying to restrain myself to two branches: main and dev, with the rule that I work on dev, and at the end of each work session, as long as dev doesn't break the website, it is always merged into main to always mirror the current state of my Sketch<s>Book</s>
 		 <svg class="logo-blue-screen" width={hFac*20} height={20}>
   		 <g transform="translate(0, 0)">
