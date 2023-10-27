@@ -2,6 +2,7 @@
 </script>
 
 <main>
+    <br>
     <div class='tableauPlaceholder' id='viz1697379897893' style='position: relative'><noscript><a href='#'>
 	<img alt='Final ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Co&#47;CollegeIncomeGeo&#47;Dashboard1&#47;1_rss.png' style='border: none' />
     </a>
@@ -36,3 +37,17 @@
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
 </main>
+
+<style>
+.tableauPlaceholder {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+}
+
+.tableauViz {
+    width: 100%; 
+    margin: 0 auto;
+    display: block; 
+}
+</style>

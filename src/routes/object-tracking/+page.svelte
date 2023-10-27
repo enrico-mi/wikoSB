@@ -12,7 +12,7 @@ import Header from '$lib/Header.svelte';
 <Header />
 
 <h1>
-    Object Tracking <span>&#8212;</span> Analogue Gravity Fringes
+    Object Tracking:<br> Analogue Gravity Fringes
 </h1>
 <br>
 <p>
@@ -22,9 +22,11 @@ import Header from '$lib/Header.svelte';
     I developed an algorithm to track the marble and the waves it generates along its passage, to enhance the message for the visitor (elastic waves are actually too small to be appreciated by naked eye).
 </p>
 
+<br><br>
+
 <iframe
-    width="560"
-    height="315"
+    width="800"
+    height="450"
     src="https://www.youtube.com/embed/aLM8rlXZX40"
     frameborder="0"
     allowfullscreen

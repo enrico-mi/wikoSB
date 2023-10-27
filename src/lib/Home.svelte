@@ -56,10 +56,18 @@ var areaPointsRed = [
 	<p class="home-desc">
 	    This is my space to play with data visualization, and interactive, graphic, and web design. <br>
 	    As such it's always alive! <br>
-	    At times you might see my own notes, for example boxes around pages' </p><p class="bordered">elements</p><p class="home-desc"> to help me design them. <br>
-	    Some pages might be under construction (forever, possibly). <br></p> 
-	<p class="directions">Or projects might take unexpected directions.</p>
-	<p class="home-desc">I will keep separate only developments that would break the website, making it inaccessible.<br><br>
+	    At times you might see my own notes, like boxes around </p><p class="bordered">elements</p><p class="home-desc"> to help me design them. <br>
+	    Some pages might be under construction (forever, possibly). <br>
+	    Or projects might <p class="grow"> grow into unexpected </p> <span class="directions"> directions.</span><br>
+	    <p class="home-desc">I'm committed to always publish the ongoing state of the sketch<s>Book</s>
+		<svg id="blue-shape" class="logo-blue-screen" width={hFac*rectHeightRed} height={rectHeightRed}>
+  		    <g transform="translate(0, 0)">
+			<path
+  			    d={areaGenerator(areaPointsRed)}
+			/>
+		    </g>
+		</svg>,
+		keeping separate only developments that would break the website and make it inaccessible.<br><br>
 	    <!-- If you're familiar with version-controlling, I am trying to restrain myself to two branches: main and dev, with the rule that I work on dev, and at the end of each work session, as long as dev doesn't break the website, it is always merged into main to always mirror the current state of my Sketch<s>Book</s>
 		 <svg class="logo-blue-screen" width={hFac*20} height={20}>
   		 <g transform="translate(0, 0)">
@@ -74,6 +82,8 @@ var areaPointsRed = [
     
     <div id="projects">
 	<h1 class="proj-list">Projects</h1>
+
+	<p> Projects vary in kind, you'll find a scientific visualization and an AI-generated narrative short film, too. Inside each page I also list the tools I have used for the specific project.
 
 	<nav class="proj-item">
 	    <a href="{base}/Ridgecrest">Mapping and Scientific Visualization <span>&#8212;</span> Ridgecrest 2019</a>
@@ -100,20 +110,20 @@ var areaPointsRed = [
 
 <style>
 
-    main {
-        text-align: center;
-        font-size: 24px;
-        color: var(--color-text);
-        margin-top: 0px;
-    }
+main {
+    text-align: center;
+    font-size: 24px;
+    color: var(--color-text);
+    margin-top: 0px;
+}
 
-    p {
-        line-height: 1;
-        font-size: 24px;
-        margin-top: 0px;
-        margin-bottom: 0px;
-    }
-
+/* p {
+   line-height: 1;
+   font-size: 24px;
+   margin-top: 0px;
+   margin-bottom: 0px;
+   }
+ */
 s {
     text-decoration: line-through;
     /* Change the line thickness */
@@ -122,8 +132,21 @@ s {
     text-decoration-color: #2D6191;
 }
 
-    path {
-	fill: #2D6191;
-    }
+path {
+    fill: #2D6191;
+}
+
+.directions {
+    transform: rotate(-10deg) translateY(-25px) translateX(10px);
+    transform-origin: right bottom;
+    line-height: 1.5em;
+    display: inline-block;
+    font-size: 35px;
+}
+
+.grow {
+    font-size: 35px;
+    display: inline;
+}
 
 </style>

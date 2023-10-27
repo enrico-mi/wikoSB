@@ -9,7 +9,9 @@ let accessGranted = false;
 
 function checkPassword() {
     // Replace 'your_password' with the actual password you want to use
-    if (password === 'ciao') {
+    if ((password === 'infogr8-111123') ||
+	(password === 'Ridgecrest-test') ||
+	(password === 'Eze+P@Vk]%')) {
 	accessGranted = true;
     } else {
 	accessGranted = false;
@@ -24,7 +26,7 @@ function checkPassword() {
 <Header />
 
 <h1>
-    Ridgecrest 2019
+    Mapping and Scientific Visualization:<br>Ridgecrest 2019
 </h1>
 <br>
 <p>
@@ -32,13 +34,14 @@ function checkPassword() {
     Data analysis: MATLAB, (C++)
     <br>
     <br>
-    What follows is an interactive visualization that I made while studying surface ruptures that formed during the sequence of earthquakes that hit the region of Ridgecrest, California, in 2019. The work is part of my research stay at MIT <span>&#8212;</span> the scientific paper is currently under revision. At the moment, the page is thought as an integratal part of the manuscript, and as such the language that describes how to navigate it is technical, but I am also working on a version accessible to a broader audience.
-</p>
+    What follows is an interactive visualization that I made while studying surface ruptures that formed during the sequence of earthquakes that hit the region of Ridgecrest, California, in 2019. The work is part of my research stay at MIT. At the moment, the page is thought as an integratal part of the manuscript, and as such the language that describes how to navigate it is technical.
+</p><br>
 {#if accessGranted}
     <Ridgecrest />
 {:else}
+    <p>
     The remaining content of this page is currently restricted as it relates to scientific work not yet published. <br>
-    If you believe you should have access to it but do not have the right password, please contact me at milanese.e[at]gmail.com.
+	If you believe you should have access to it but do not have the correct password, please contact me at milanese.e[at]gmail.com.</p>
     <br><br>
   <!-- Password Input Form -->
   <form on:submit|preventDefault={checkPassword}>

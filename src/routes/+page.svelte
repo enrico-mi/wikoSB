@@ -8,10 +8,6 @@ import Home from '$lib/Home.svelte';
 <main>
     <div id="root">
 	
-	<nav class="nav-about">
-	    <a href="{base}/about">About</a>
-	</nav>
-
 	<Header />
 	
 	<div class="body">
@@ -19,9 +15,6 @@ import Home from '$lib/Home.svelte';
 	</div>
     </div>
 </main>
-
-
-
 
 <style>
 @import './style.css';

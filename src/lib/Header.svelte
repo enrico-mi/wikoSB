@@ -1,4 +1,6 @@
 <script>
+import { base } from "$app/paths";
+
 import * as d3 from 'd3';
 
 let acronymW = "W";
@@ -31,6 +33,10 @@ var areaPointsRed = [
 </script>
 
 <main>
+    <nav class="nav-about">
+	<a href="{base}/about">about Wiko</a>
+    </nav>
+
     <div class="header">
 	<div class="header__logo">
 	    <span class="acronym-W">W</span>

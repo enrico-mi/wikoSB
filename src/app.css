@@ -7,7 +7,7 @@
 }
 
 div, nav {
-  border: 1px dashed #333;
+  /* border: 1px dashed #333; */
   padding: 0.5em
 }
 
@@ -23,8 +23,10 @@ svg.logo-blue-screen{
     /* border: 1px dashed red; */
 }
 
-div, p {
+div, p, nav {
     font-size: 20px;
+    width: 55vw;
+    margin: 0 auto
 }
 
 .home-title{
