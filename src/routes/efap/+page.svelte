@@ -3,7 +3,7 @@ import { base } from "$app/paths";
 
 import Header from '$lib/Header.svelte';
 
-//import img from '/images/efap/MG.png';
+    //import img from '/images/efap/MG.png';
 
 </script>
 
@@ -28,22 +28,22 @@ import Header from '$lib/Header.svelte';
 </p>
 <br>
 <p class="image"> Voyage dans la Lune
-    <img src="/efap/Voyage_rgb_8bit.png" alt="voyage" class="image" />
+    <img src="{process.env.NODE_ENV === 'development' ? '/efap/' : '/wikoSB/efap/'}Voyage_rgb_8bit.png" alt="voyage" class="image" />
 </p>
 <br><br>
 
 <p class="image"> Bo Burnham's Inside
-    <img src="/efap/BB_whole_rgb_8bit.png" alt="inside" class="image" />
+    <img src="{process.env.NODE_ENV === 'development' ? '/efap/' : '/wikoSB/efap/'}BB_whole_rgb_8bit.png" alt="inside" class="image" />
 </p>
 <br><br>
 
 <p class="image"> Midnight Gospel <span>&#8212;</span> Taste of the King
-    <img src="/efap/MG.png" alt="midnight-gospel" class="image" />
+    <img src="{process.env.NODE_ENV === 'development' ? '/efap/' : '/wikoSB/efap/'}MG.png" alt="midnight-gospel" class="image" />
 </p>
 <br><br>
 
 <p class="image"> Popeye the Sailor
-    <img src="/efap/popeye_rgb_8bit.png" alt="popeye" class="image" />
+    <img src="{process.env.NODE_ENV === 'development' ? '/efap/' : '/wikoSB/efap/'}popeye_rgb_8bit.png" alt="popeye" class="image" />
 </p>
 
 <style>
