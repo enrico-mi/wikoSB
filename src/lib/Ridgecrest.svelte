@@ -19,4 +19,4 @@ onMount(() => {
 </script>
 
 <!-- <iframe id="my-iframe" src="{url}" style="width: 100%" frameborder="0"></iframe> -->
-<iframe id="my-iframe" src="{process.env.NODE_ENV === 'development' ? '/Ridgecrest/index.html' : '/wikoSB/Ridgecrest/index.html'}" style="width: 100%" frameborder="0"></iframe>
+<iframe id="my-iframe" src="{process.env.NODE_ENV === 'development' ? '/Ridgecrest-viz/index.html' : '/wikoSB/Ridgecrest-viz/index.html'}" style="width: 100%" frameborder="0"></iframe>
