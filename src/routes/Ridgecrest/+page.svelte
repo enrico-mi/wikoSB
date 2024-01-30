@@ -9,9 +9,7 @@ let accessGranted = false;
 
 function checkPassword() {
     // Replace 'your_password' with the actual password you want to use
-    if ((password === 'infogr8-111123') ||
-	(password === 'Ridgecrest-test') ||
-	(password === 'Eze+P@Vk]%')) {
+    if	(password === 'Ridgecrest-test') {
 	accessGranted = true;
     } else {
 	accessGranted = false;

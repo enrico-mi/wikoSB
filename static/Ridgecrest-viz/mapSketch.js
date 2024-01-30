@@ -66,8 +66,8 @@ let mapSketch = function(p){
 	Ponti = p.loadJSON(awsAddress + 'geojson/ponti_all_lengths.geojson');
 	//Ponti = p.loadJSON('./geojson/prova.geojson');
 	TJ = p.loadJSON(awsAddress + 'geojson/tj_geojson_ids.json');
-	faultTraceMainshock = p.loadJSON('./geojson/fault_trace_mainshock.geojson');
-	faultTraceForeshock = p.loadJSON('./geojson/fault_trace_foreshock.geojson');
+	//faultTraceMainshock = p.loadJSON('./geojson/fault_trace_mainshock.geojson');
+	//faultTraceForeshock = p.loadJSON('./geojson/fault_trace_foreshock.geojson');
     };
 
     // For Fig. 1a (whole area):
@@ -115,15 +115,15 @@ let mapSketch = function(p){
 		});
 
 		// Jin and Fialko fault trace
-		myMap.addSource('fault-trace-main', {
-		    type: 'geojson',
-		    data: faultTraceMainshock
-		});
+		// myMap.addSource('fault-trace-main', {
+		//     type: 'geojson',
+		//     data: faultTraceMainshock
+		// });
 
-		myMap.addSource('fault-trace-fore', {
-		    type: 'geojson',
-		    data: faultTraceForeshock
-		});
+		// myMap.addSource('fault-trace-fore', {
+		//     type: 'geojson',
+		//     data: faultTraceForeshock
+		// });
 
 		// Add a layer to display the GeoJSON data
 		myMap.addLayer({
@@ -152,32 +152,32 @@ let mapSketch = function(p){
 		});
 
 		// Add a layer to display fault trace
-		myMap.addLayer({
-		    id: 'fault-trace-main',
-		    type: 'line',
-		    source: 'fault-trace-main',
-		    paint: {
-			'line-width': 3,
-			'line-color': 'black',
-			'line-opacity': 1
-		    },
-		    minzoom: 0,
-		    maxzoom: 24
-		});
+		// myMap.addLayer({
+		//     id: 'fault-trace-main',
+		//     type: 'line',
+		//     source: 'fault-trace-main',
+		//     paint: {
+		// 	'line-width': 3,
+		// 	'line-color': 'black',
+		// 	'line-opacity': 1
+		//     },
+		//     minzoom: 0,
+		//     maxzoom: 24
+		// });
 
-		myMap.addLayer({
-		    id: 'fault-trace-fore',
-		    type: 'line',
-		    source: 'fault-trace-fore',
-		    paint: {
-			'line-width': 3,
-			'line-color': 'black',
-			'line-dasharray': [3, 1, 1],
-			'line-opacity': 1
-		    },
-		    minzoom: 0,
-		    maxzoom: 24
-		});
+		// myMap.addLayer({
+		//     id: 'fault-trace-fore',
+		//     type: 'line',
+		//     source: 'fault-trace-fore',
+		//     paint: {
+		// 	'line-width': 3,
+		// 	'line-color': 'black',
+		// 	'line-dasharray': [3, 1, 1],
+		// 	'line-opacity': 1
+		//     },
+		//     minzoom: 0,
+		//     maxzoom: 24
+		// });
 
 		// Add a layer to display selected data
 		myMap.addLayer({
