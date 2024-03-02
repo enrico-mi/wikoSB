@@ -453,7 +453,7 @@ let graphicSketch = function(p){
     };
 
     p.drawAll = function(){
-	p.background(255,255,255);//(255,254,245);
+	p.background(255,254,245);
 	p.drawTexts();
 	p.drawHeatmap();
 	p.drawErrText();
