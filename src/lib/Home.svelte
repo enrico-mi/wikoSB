@@ -90,7 +90,11 @@ var areaPointsRed = [
 	</nav>
 	
 	<nav class="proj-item">
-	    <a href="{base}/us-colleges-income">Data visualization <span>&#8212;</span> US colleges admission and household income</a>
+	    <a href="{base}/music-boston">Visualization of Georeferenced Data <span>&#8212;</span> Boston Music Scene </a>
+	</nav>
+	
+	<nav class="proj-item">
+	    <a href="{base}/us-colleges-income">Data Visualization <span>&#8212;</span> US Colleges Admission and Household Income</a>
 	</nav>
 
 	<nav class="proj-item">

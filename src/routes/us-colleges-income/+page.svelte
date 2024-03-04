@@ -14,7 +14,7 @@ import CollegeIncome from '$lib/CollegeIncome.svelte';
 <Header />
 
 <h1>
-    Data visualization:<br> US colleges admission and household income
+    Data Visualization:<br> US Colleges Admission and Household Income
 </h1>
 <br>
 
