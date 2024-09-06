@@ -26,16 +26,16 @@
 
 	<div class="scrollable">
 	  <div class="introduction">
-	    <!-- we didn't go over this but the details & summary elements are one way to make your introduction content collapseable / hideable. See: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details       -->
-	    <!-- <details open> -->
 	      <!--   <summary> Introduction </summary> -->
 	      <p> The 2019 Ridgecrest earthquakes sequence resulted in several surface ruptures at all scales that are of considerable scientific interest. This interactive visualization complements our investigations of the surface ruptures that were observed at the northern termination of the mainshock fault, and it is meant to be used together with the main manuscript, as knowledge of that material is implied.</p>
+
+	      <p> Note that in our investigations we explored a range of parameters (shear modulus, uncertainty, slip models) that resulted in a large amount of data and cases that cannot all be included in this visualization. Therefore, here we restrain our visualization to two possible orientations of the background stress (N0E and N14E), one slip model (Jin and Fialko, 2021), shear modulus equal to 10 GPa, and no added uncertainty to the observed fracture orientation. Other parameters (e.g. friction coefficient, depth, fracture length) can be explored as described below. The primary goal is to provide an interactive visualization that shows the effect of the background stress orientation and of the relative influence of background and coseismic stresses.</p>
 
 	      <p id="explainer"> The text that follows explains how to interact with this page. If you want to skip to the visualization, <a href="#heatmap"> click here</a>.</p>
 
 	      <p>The webapp contains four elements: a map of the Ridgecrest region, a heatmap with the error estimates for the coefficient of friction &mu;, radial plot for fractures orientation, a set of controls that allow to quickly visualize the implications of different assumptions and fractures selection.</p>
 
-	      <p> <b>Map</b>. On your right, you have the map of the Ridgecrest region, displaying the fractures dataset (orange) of Ponti et al (2020) from which the pre-2019 features later identified by Thompson Jobe et al (2021) have been removed (gray). The box with black dotted borders indicates the region object of our investigations. By clicking on any rupture, a pop-up window will show informations contained in the dataset (e.g. observation methodology, provider, citation, angle of each segment and overall average angle of the fracture, etc.).</p>
+	      <p> <b>Map</b>. On the right, you have the map of the Ridgecrest region, displaying the fractures dataset (orange) of Ponti et al (2020) from which the pre-2019 features later identified by Thompson Jobe et al (2021) have been removed (gray). The box with black dotted borders indicates the region object of our investigations. By clicking on any rupture, a pop-up window will show informations contained in the dataset (e.g. observation methodology, provider, citation, angle of each segment and overall average angle of the fracture, etc.).</p>
 
 	      <p> <b>Heatmap</b>. The first element below this text is an interactive heatmap where each tile's color is directly proportional to the sum of squared residuals of the weighted error of the predicted orientation of each fracture, SR<sub>w</sub>, and where each row and column represents a value of &mu; and of depth. At each depth, orange borders surround neighboring tiles whose SR<sub>w</sub> is smaller than the one predicted by pure randomness, and an orange ring identifies the tile with the smallest SR<sub>w</sub>. For each heatmap, an orange filled circle identifies the tile with the smallest SR<sub>w</sub> overall. By clicking on a specific tile (for &mu; between 0 and 1.5), the directions of largest horizontal stress and of shear failure are visualized in the map on the right.</p>
 
@@ -55,7 +55,6 @@
 		<br>
 		<i>Select a tectonic stress orientation</i>: selects direction of largest horizontal compressive stress. It affects heatmap, map (stress orientations only), and radial plot.</p>
 
-	    <!-- </details> -->
 	  </div>
 
 	  <div class="heatmap-controls-polar">
@@ -66,29 +65,6 @@
 	    <div class="controls">
               <!-- to allow the controls to scroll vertically we add another container within the .controls container -->
               <div class="scrollable">
-		<!-- <fieldset> -->
-		<!--   <legend>Select segments or fractures resolution:</legend> -->
-		<!--     <input type="radio" id="Fractures" name="resolution-type" value="0" checked/> -->
-		<!--     <label for="All">Fractures</label> -->
-
-		<!--     <input type="radio" id="Segments" name="resolution-type" value="1"/> -->
-		<!--     <label for="Subset">Segments</label> -->
-
-		<!-- </fieldset> -->
-
-		<!-- <fieldset> -->
-		<!--   <legend>Select error normalization:</legend> -->
-		<!--   <div> -->
-		<!--     <input type="radio" id="Subset" name="normalization" value="0" checked/> -->
-		<!--     <label for="Subset">Total length of all fractures, for subset selected by resolution</label> -->
-		<!--   </div> -->
-
-		<!--   <div> -->
-		<!--     <input type="radio" id="All" name="normalization" value="1" /> -->
-		<!--     <label for="All">Total length of all fractures (only for fractures of known slip mechanism)</label> -->
-		<!--   </div> -->
-
-		<!-- </fieldset> -->
 
 		<label-slider for="mu_slider">&mu; (for radial plot):</label-slider>
 		<input id="mu_input" type="range" min="0" max="1.5" step="0.1" value="0.6"/><label-out><output id="mu_value"></output></label-out>
@@ -130,8 +106,8 @@
 		    <input type="radio" id="N0E" name="orientation" value="0" />
 		    <label for="N0E">N0E</label>
 
-		    <input type="radio" id="N13E" name="orientation" value="1" checked />
-		    <label for="N13E">N13E</label>
+		    <input type="radio" id="N14E" name="orientation" value="1" checked />
+		    <label for="N14E">N14E</label>
 
 		</fieldset>
 
